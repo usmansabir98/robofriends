@@ -6,8 +6,13 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundary';
+import Header from "../components/Header";
 
-// parameter state comes from index.js provider store state(rootReducers)
+// if (process.env.NODE_ENV !== 'production') {
+//   const {whyDidYouUpdate} = require('why-did-you-update');
+//   whyDidYouUpdate(React);
+// }
+// parameter state comes from index.js provider store state(rootReducers).com
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchRobots.searchField,
@@ -37,7 +42,7 @@ class App extends Component {
     })
     return (
       <div className='tc'>
-        <h1 className='f1'>RoboFriends</h1>
+        <Header />
         <SearchBox searchChange={onSearchChange}/>
         <Scroll>
           { isPending ? <h1>Loading</h1> :
